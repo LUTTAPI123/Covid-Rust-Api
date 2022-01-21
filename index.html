@@ -7,287 +7,34 @@
         body {
             font-family: a;
         }
-        .about {
-           $cubic: cubic-bezier(0.64, 0.01, 0.07, 1.65);
-           $transition: 0.6s $cubic;
-           $size: 40px;
-           position: fixed;
-           z-index: 10;
-           bottom: 10px;
-           right: 10px;
-           width: $size;
-           height: $size;
-           display: flex;
-           justify-content: flex-end;
-           align-items: flex-end;
-           transition: all 0.2s ease;
+        @import "compass/css3"
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;500&display=swap')
 
-           .bg_links {
-              width: $size;
-              height: $size;
-              border-radius: 100%;
-              display: flex;
-              justify-content: center;
-              align-items: center;
-              background-color: rgba(#000000, 0.2);
-              border-radius: 100%;
-              backdrop-filter: blur(5px);
-              position: absolute;
-           }
+        @keyframes rotation 
+          from 
+            -webkit-transform: rotate(359deg) 
+          to 
+            -webkit-transform: rotate(0deg)
+        html
+          height: 100%
+        body
+          margin: 0
+          background-color: #03374c
+          height: 100%
+          display: flex
+          align-items: center
+          justify-content: center
+          font-family: 'Raleway', sans-serif
 
-           .logo {
-              width: $size;
-              height: $size;
-              z-index: 9;
-              background-image: url(https://rafaelavlucas.github.io/assets/codepen/logo_white.svg);
-              background-size: 50%;
-              background-repeat: no-repeat;
-              background-position: 10px 7px;
-              opacity: 0.9;
-              transition: all 1s 0.2s ease;
-              bottom: 0;
-              right: 0;
-           }
+        svg *
+          -webkit-transform-origin: 50% 50%
+          -ms-transform-origin: 50% 50%
+          transform-origin: 50% 50%
 
-           .social {
-              opacity: 0;
-              right: 0;
-              bottom: 0;
-
-              .icon {
-                 width: 100%;
-                 height: 100%;
-                 background-size: 20px;
-                 background-repeat: no-repeat;
-                 background-position: center;
-                 background-color: transparent;
-                 display: flex;
-                 transition: all 0.2s ease, background-color 0.4s ease;
-                 opacity: 0;
-                 border-radius: 100%;
-              }
-
-              &.portfolio {
-                 transition: all 0.8s ease;
-
-                 .icon {
-                    background-image: url(https://rafaelavlucas.github.io/assets/codepen/link.svg);
-                 }
-              }
-
-              &.dribbble {
-                 transition: all 0.3s ease;
-                 .icon {
-                    background-image: url(https://rafaelavlucas.github.io/assets/codepen/dribbble.svg);
-                 }
-              }
-
-              &.linkedin {
-                 transition: all 0.8s ease;
-                 .icon {
-                    background-image: url(https://rafaelavlucas.github.io/assets/codepen/linkedin.svg);
-                 }
-              }
-           }
-
-           &:hover {
-              width: 105px;
-              height: 105px;
-              transition: all $transition;
-
-              .logo {
-                 opacity: 1;
-                 transition: all 0.6s ease;
-              }
-
-              .social {
-                 opacity: 1;
-
-                 .icon {
-                    opacity: 0.9;
-                 }
-
-                 &:hover {
-                    background-size: 28px;
-                    .icon {
-                       background-size: 65%;
-                       opacity: 1;
-                    }
-                 }
-
-                 &.portfolio {
-                    right: 0;
-                    bottom: calc(100% - 40px);
-                    transition: all 0.3s 0s $cubic;
-                    .icon {
-                       &:hover {
-                          background-color: #698fb7;
-                       }
-                    }
-                 }
-
-                 &.dribbble {
-                    bottom: 45%;
-                    right: 45%;
-                    transition: all 0.3s 0.15s $cubic;
-                    .icon {
-                       &:hover {
-                          background-color: #ea4c89;
-                       }
-                    }
-                 }
-
-                 &.linkedin {
-                    bottom: 0;
-                    right: calc(100% - 40px);
-                    transition: all 0.3s 0.25s $cubic;
-                    .icon {
-                       &:hover {
-                          background-color: #0077b5;
-                       }
-                    }
-                 }
-              }
-           }
-        }
-
-        @import url("https://fonts.googleapis.com/css?family=Oxygen:700&display=swap");
-
-        body {
-           margin: 0;
-        }
-
-        $bg: #171f30;
-        $c-01: #5389a6;
-        $c-02: #a6dcee;
-
-        $font-01: "Oxygen", sans-serif;
-
-        .content {
-           width: 100%;
-           height: 100vh;
-           background-color: $bg;
-           display: flex;
-           justify-content: center;
-           align-items: center;
-
-           .loading {
-              width: 80px;
-              height: 50px;
-              position: relative;
-
-              p {
-                 top: 0;
-                 padding: 0;
-                 margin: 0;
-                 color: $c-01;
-                 font-family: $font-01;
-                 animation: text 3.5s ease both infinite;
-                 font-size: 12px;
-                 letter-spacing: 1px;
-
-                 @keyframes text {
-                    0% {
-                       letter-spacing: 1px;
-                       transform: translateX(0px);
-                    }
-
-                    40% {
-                       letter-spacing: 2px;
-                       transform: translateX(26px);
-                    }
-
-                    80% {
-                       letter-spacing: 1px;
-                       transform: translateX(32px);
-                    }
-
-                    90% {
-                       letter-spacing: 2px;
-                       transform: translateX(0px);
-                    }
-
-                    100% {
-                       letter-spacing: 1px;
-                       transform: translateX(0px);
-                    }
-                 }
-              }
-              span {
-                 background-color: $c-01;
-                 border-radius: 50px;
-                 display: block;
-                 height: 16px;
-                 width: 16px;
-                 bottom: 0;
-                 position: absolute;
-                 transform: translateX(64px);
-                 animation: loading 3.5s ease both infinite;
-
-                 &:before {
-                    position: absolute;
-                    content: "";
-                    width: 100%;
-                    height: 100%;
-                    background-color: $c-02;
-                    border-radius: inherit;
-                    animation: loading2 3.5s ease both infinite;
-                 }
-
-                 @keyframes loading {
-                    0% {
-                       width: 16px;
-                       transform: translateX(0px);
-                    }
-
-                    40% {
-                       width: 100%;
-                       transform: translateX(0px);
-                    }
-
-                    80% {
-                       width: 16px;
-                       transform: translateX(64px);
-                    } 
-
-                    90% {
-                       width: 100%;
-                       transform: translateX(0px);
-                    }
-
-                    100% {
-                       width: 16px;
-                       transform: translateX(0px);
-                    }
-                 }
-                 @keyframes loading2 {
-                    0% {
-                       transform: translateX(0px);
-                       width: 16px;
-                    }
-
-                    40% {
-                       transform: translateX(0%);
-                       width: 80%;
-                    }
-
-                   80% {
-                       width: 100%;
-                       transform: translateX(0px);
-                    }
-
-                    90% {
-                       width: 80%;
-                    transform: translateX(15px);
-                    }
-                    100% {
-                       transform: translateX(0px);
-                       width: 16px;
-                    }
-                 }
-              }
-           }
-        }
+        .circle
+          -webkit-animation: rotation 8s infinite linear
+          &_s
+            -webkit-animation: rotation 4s infinite linear       
 
     </style>
 </head>
@@ -356,26 +103,21 @@
         });
     </script>
     
-<div class="about">
-   <a class="bg_links social portfolio" href="https://www.rafaelalucas.com" target="_blank">
-      <span class="icon"></span>
-   </a>
-   <a class="bg_links social dribbble" href="https://dribbble.com/rafaelalucas" target="_blank">
-      <span class="icon"></span>
-   </a>
-   <a class="bg_links social linkedin" href="https://www.linkedin.com/in/rafaelalucas/" target="_blank">
-      <span class="icon"></span>
-   </a>
-   <a class="bg_links logo"></a>
-</div>
-<!-- end about -->
+<svg width="140" height="140" viewBox="0 0 280 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g>
+<line x1="59.9833" y1="140.333" x2="219.978" y2="139" stroke="#000" stroke-width="4"/>
+<circle cx="60" cy="140" r="5" fill="#000"/>
+<circle cx="220" cy="139" r="5" fill="#000"/>
+</g>
+<path class="circle" d="M109.957 122.655L140 105.309L170.043 122.655V157.345L140 174.691L109.957 157.345V122.655Z" stroke="#000" stroke-width="4"/>
+<circle class="circle" cx="140" cy="140" r="13" stroke="#f5d77b" stroke-width="4"/>
+<circle class="circle" cx="110" cy="192" r="13" stroke="#f7a78f" stroke-width="4"/>
+<circle class="circle circle_s" cx="85" cy="232" r="8" stroke="#82c7c5" stroke-width="4"/>
+<circle class="circle" cx="170" cy="88" r="13" stroke="#82c7c5" stroke-width="4"/>
+<circle class="circle circle_s" cx="110" cy="192" r="5" fill="#f7a78f"/>
+<circle class="circle circle_s" cx="185" cy="61" r="5" fill="#f5d77b"/>
+</svg>
 
-<div class="content">
-   <div class="loading">
-<p>loading</p>
-      <span></span>
-   </div>
-</div>
 <p align="center">Made with ❤️ By <a href="//github.com/LUTTAPI123">Luttapi</a></p>
 <p align="center">©CopyRight 2021</a></p>
 
